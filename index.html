@@ -23,240 +23,103 @@
     --mono: 'Space Mono', monospace;
     --sans: 'DM Sans', sans-serif;
   }
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  body { background:var(--bg); color:var(--text); font-family:var(--sans); min-height:100vh; max-width:430px; margin:0 auto; padding:0 0 80px; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--sans);
-    min-height: 100vh;
-    max-width: 430px;
-    margin: 0 auto;
-    padding: 0 0 80px;
-  }
-
-  .header {
-    padding: 24px 20px 16px;
-    border-bottom: 1px solid var(--border);
-    position: sticky;
-    top: 0;
-    background: var(--bg);
-    z-index: 10;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  .header-left .greeting {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-family: var(--mono);
-    margin-bottom: 2px;
-  }
-  .header-left .name {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: -0.02em;
-  }
-  .header-right { text-align: right; }
-  .live-dot {
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    margin-right: 5px;
-    animation: pulse 2s ease-in-out infinite;
-  }
+  /* HEADER */
+  .header { padding:24px 20px 16px; border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg); z-index:10; display:flex; justify-content:space-between; align-items:flex-end; }
+  .header-left .greeting { font-size:11px; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; font-family:var(--mono); margin-bottom:2px; }
+  .header-left .name { font-size:22px; font-weight:600; color:var(--text); letter-spacing:-0.02em; }
+  .header-right { text-align:right; }
+  .live-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--green); margin-right:5px; animation:pulse 2s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
-  .live-label { font-size: 11px; color: var(--green); font-family: var(--mono); letter-spacing: 0.05em; }
-  .date-label { font-size: 11px; color: var(--muted); font-family: var(--mono); margin-top: 2px; }
+  .live-label { font-size:11px; color:var(--green); font-family:var(--mono); letter-spacing:0.05em; }
+  .date-label { font-size:11px; color:var(--muted); font-family:var(--mono); margin-top:2px; }
 
-  .tab-nav {
-    display: flex;
-    padding: 12px 20px;
-    gap: 6px;
-    border-bottom: 1px solid var(--border);
-  }
-  .tab-btn {
-    flex: 1;
-    padding: 8px 14px;
-    border-radius: 20px;
-    border: 1px solid var(--border2);
-    background: transparent;
-    color: var(--muted2);
-    font-size: 13px;
-    font-family: var(--sans);
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    text-align: center;
-  }
-  .tab-btn.active {
-    background: var(--green);
-    color: #000;
-    border-color: transparent;
-    font-weight: 600;
-  }
+  /* TABS */
+  .tab-nav { display:flex; padding:12px 20px; gap:6px; border-bottom:1px solid var(--border); }
+  .tab-btn { flex:1; padding:8px 6px; border-radius:20px; border:1px solid var(--border2); background:transparent; color:var(--muted2); font-size:12px; font-family:var(--sans); font-weight:500; cursor:pointer; transition:all 0.2s; text-align:center; white-space:nowrap; }
+  .tab-btn.active { background:var(--green); color:#000; border-color:transparent; font-weight:600; }
 
-  .panel { display: none; padding: 20px; }
-  .panel.active { display: block; }
+  /* PANELS */
+  .panel { display:none; padding:20px; }
+  .panel.active { display:block; }
+  .section-label { font-size:10px; font-family:var(--mono); color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; }
 
-  .section-label {
-    font-size: 10px;
-    font-family: var(--mono);
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
+  /* MISSION */
+  .mission-card { background:linear-gradient(135deg,rgba(0,229,160,0.08) 0%,rgba(77,159,255,0.05) 100%); border:1px solid rgba(0,229,160,0.15); border-radius:12px; padding:16px; margin-bottom:20px; }
+  .mission-title { font-size:10px; font-family:var(--mono); color:var(--green); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; }
+  .mission-text { font-size:14px; color:var(--text); line-height:1.6; font-weight:300; }
+  .mission-text strong { color:var(--green); font-weight:600; }
 
-  /* Mission card */
-  .mission-card {
-    background: linear-gradient(135deg, rgba(0,229,160,0.08) 0%, rgba(77,159,255,0.05) 100%);
-    border: 1px solid rgba(0,229,160,0.15);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 20px;
-  }
-  .mission-title { font-size: 10px; font-family: var(--mono); color: var(--green); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
-  .mission-text { font-size: 14px; color: var(--text); line-height: 1.6; font-weight: 300; }
-  .mission-text strong { color: var(--green); font-weight: 600; }
+  /* CHECKLIST */
+  .routine-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+  .routine-progress-text { font-family:var(--mono); font-size:12px; color:var(--green); }
+  .progress-bar-wrap { height:3px; background:var(--surface2); border-radius:2px; overflow:hidden; margin-bottom:20px; }
+  .progress-bar-fill { height:100%; background:var(--green); border-radius:2px; transition:width 0.4s ease; }
+  .checklist { display:flex; flex-direction:column; gap:8px; margin-bottom:20px; }
+  .check-item { display:flex; align-items:center; gap:12px; padding:14px; background:var(--surface); border-radius:10px; border:1px solid var(--border); cursor:pointer; transition:all 0.2s; user-select:none; }
+  .check-item.done { background:var(--green-dim); border-color:rgba(0,229,160,0.2); }
+  .check-item.done .check-text { color:var(--muted2); text-decoration:line-through; }
+  .check-circle { width:22px; height:22px; border-radius:50%; border:1.5px solid var(--border2); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.2s; }
+  .check-item.done .check-circle { background:var(--green); border-color:var(--green); }
+  .check-circle svg { display:none; }
+  .check-item.done .check-circle svg { display:block; }
+  .check-text { font-size:14px; color:var(--text); font-weight:400; flex:1; line-height:1.4; }
 
-  /* Checklist */
-  .routine-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-  .routine-progress-text { font-family: var(--mono); font-size: 12px; color: var(--green); }
-  .progress-bar-wrap { height: 3px; background: var(--surface2); border-radius: 2px; overflow: hidden; margin-bottom: 20px; }
-  .progress-bar-fill { height: 100%; background: var(--green); border-radius: 2px; transition: width 0.4s ease; }
+  /* BUTTONS */
+  .btn-ghost { width:100%; padding:11px; border-radius:10px; border:1px solid var(--border); background:transparent; color:var(--muted2); font-family:var(--sans); font-size:13px; cursor:pointer; transition:all 0.15s; }
+  .btn-ghost:active { opacity:0.7; }
 
-  .checklist { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
-  .check-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 14px;
-    background: var(--surface);
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    cursor: pointer;
-    transition: all 0.2s;
-    user-select: none;
-  }
-  .check-item.done { background: var(--green-dim); border-color: rgba(0,229,160,0.2); }
-  .check-item.done .check-text { color: var(--muted2); text-decoration: line-through; }
-  .check-circle {
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    border: 1.5px solid var(--border2);
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.2s;
-  }
-  .check-item.done .check-circle { background: var(--green); border-color: var(--green); }
-  .check-circle svg { display: none; }
-  .check-item.done .check-circle svg { display: block; }
-  .check-text { font-size: 14px; color: var(--text); font-weight: 400; flex: 1; line-height: 1.4; }
+  /* SHEETS STATUS */
+  .sheets-status { display:flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:var(--surface); margin-bottom:20px; font-size:12px; font-family:var(--mono); color:var(--muted2); }
+  .sheets-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+  .dot-green { background:var(--green); box-shadow:0 0 6px rgba(0,229,160,0.5); }
+  .dot-red { background:var(--red); }
+  .dot-amber { background:var(--amber); animation:pulse 1.5s ease-in-out infinite; }
 
-  .btn-ghost {
-    width: 100%;
-    padding: 11px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted2);
-    font-family: var(--sans);
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .btn-ghost:active { opacity: 0.7; }
+  /* STATS */
+  .stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
+  .stat-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:12px 14px; }
+  .stat-label { font-size:10px; color:var(--muted); font-family:var(--mono); letter-spacing:0.06em; text-transform:uppercase; margin-bottom:4px; }
+  .stat-value { font-size:20px; font-weight:600; color:var(--text); font-family:var(--mono); letter-spacing:-0.02em; }
+  .stat-value.green { color:var(--green); }
+  .stat-value.amber { color:var(--amber); }
+  .stat-sub { font-size:11px; color:var(--muted); margin-top:2px; }
 
-  /* Objectif */
-  .sheets-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 14px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    margin-bottom: 20px;
-    font-size: 12px;
-    font-family: var(--mono);
-    color: var(--muted2);
-  }
-  .sheets-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-  .dot-green { background: var(--green); box-shadow: 0 0 6px rgba(0,229,160,0.5); }
-  .dot-red { background: var(--red); }
-  .dot-amber { background: var(--amber); animation: pulse 1.5s ease-in-out infinite; }
+  /* PROGRESS */
+  .progress-wrap { margin-bottom:20px; }
+  .progress-top { display:flex; justify-content:space-between; margin-bottom:8px; }
+  .progress-top span { font-family:var(--mono); font-size:12px; color:var(--muted); }
+  .progress-top strong { font-family:var(--mono); font-size:12px; color:var(--green); }
+  .progress-bar-lg { height:8px; background:var(--surface2); border-radius:4px; overflow:hidden; }
+  .progress-bar-lg-fill { height:100%; background:var(--green); border-radius:4px; transition:width 0.6s ease; }
 
-  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
-  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; }
-  .stat-label { font-size: 10px; color: var(--muted); font-family: var(--mono); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 4px; }
-  .stat-value { font-size: 20px; font-weight: 600; color: var(--text); font-family: var(--mono); letter-spacing: -0.02em; }
-  .stat-value.green { color: var(--green); }
-  .stat-value.amber { color: var(--amber); }
-  .stat-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  /* CARD */
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:10px; }
+  .card-row { display:flex; justify-content:space-between; align-items:center; padding:7px 0; border-bottom:1px solid var(--border); font-size:13px; }
+  .card-row:last-child { border-bottom:none; padding-bottom:0; }
+  .card-row:first-child { padding-top:0; }
+  .card-label { color:var(--muted2); }
+  .card-value { font-family:var(--mono); font-size:13px; color:var(--text); }
+  .card-value.green { color:var(--green); }
+  .divider { height:1px; background:var(--border); margin:16px 0; }
+  .note { font-size:12px; color:var(--muted); line-height:1.6; padding:12px 0; }
 
-  .progress-wrap { margin-bottom: 20px; }
-  .progress-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
-  .progress-top span { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-  .progress-top strong { font-family: var(--mono); font-size: 12px; color: var(--green); }
-  .progress-bar-lg { height: 8px; background: var(--surface2); border-radius: 4px; overflow: hidden; }
-  .progress-bar-lg-fill { height: 100%; background: var(--green); border-radius: 4px; transition: width 0.6s ease; }
+  /* HISTORIQUE TABLE */
+  .histo-table { width:100%; border-collapse:collapse; font-size:12px; }
+  .histo-table thead th { font-family:var(--mono); font-size:10px; color:var(--muted); letter-spacing:0.06em; text-transform:uppercase; padding:0 8px 10px; text-align:right; }
+  .histo-table thead th:first-child { text-align:left; }
+  .histo-table tbody tr { border-top:1px solid var(--border); }
+  .histo-table tbody td { padding:10px 8px; text-align:right; font-family:var(--mono); color:var(--text); }
+  .histo-table tbody td:first-child { text-align:left; font-family:var(--sans); color:var(--muted2); font-size:13px; }
+  .histo-table .pos { color:var(--green); }
+  .histo-table .neg { color:var(--red); }
+  .histo-table tfoot td { padding:10px 8px; border-top:1px solid var(--border2); text-align:right; font-family:var(--mono); font-weight:700; color:var(--text); font-size:12px; }
+  .histo-table tfoot td:first-child { text-align:left; font-family:var(--sans); color:var(--muted2); font-size:12px; }
 
-  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
-  .card-row { display: flex; justify-content: space-between; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-  .card-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .card-row:first-child { padding-top: 0; }
-  .card-label { color: var(--muted2); }
-  .card-value { font-family: var(--mono); font-size: 13px; color: var(--text); }
-  .card-value.green { color: var(--green); }
-
-  .divider { height: 1px; background: var(--border); margin: 16px 0; }
-  .note { font-size: 12px; color: var(--muted); line-height: 1.6; padding: 12px 0; }
-
-  /* Setup modal */
-  .setup-box {
-    background: var(--surface);
-    border: 1px solid rgba(240,165,0,0.3);
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 16px;
-  }
-  .setup-title { font-size: 11px; font-family: var(--mono); color: var(--amber); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
-  .setup-input {
-    width: 100%;
-    padding: 10px 12px;
-    background: var(--surface2);
-    border: 1px solid var(--border2);
-    border-radius: 8px;
-    color: var(--text);
-    font-family: var(--mono);
-    font-size: 12px;
-    outline: none;
-    margin-bottom: 8px;
-    transition: border-color 0.2s;
-  }
-  .setup-input:focus { border-color: var(--green); }
-  .setup-input::placeholder { color: var(--muted); }
-  .btn-setup {
-    width: 100%;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
-    background: var(--amber);
-    color: #000;
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.15s;
-  }
-  .btn-setup:active { opacity: 0.8; }
-  .setup-hint { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: 8px; }
+  .histo-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:4px 4px; margin-bottom:16px; overflow:hidden; }
+  .histo-totals { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:16px; }
 </style>
 </head>
 <body>
@@ -273,17 +136,17 @@
 </div>
 
 <div class="tab-nav">
-  <button class="tab-btn active" onclick="showTab('routine', this)">Routine</button>
-  <button class="tab-btn" onclick="showTab('objectif', this)">Objectif</button>
+  <button class="tab-btn active" onclick="showTab('routine',this)">Routine</button>
+  <button class="tab-btn" onclick="showTab('objectif',this)">Objectif</button>
+  <button class="tab-btn" onclick="showTab('historique',this)">Historique</button>
 </div>
 
-<!-- ROUTINE -->
+<!-- ─── ROUTINE ─── -->
 <div id="tab-routine" class="panel active">
   <div class="mission-card">
     <div class="mission-title">Mantra du jour</div>
     <div class="mission-text">Focus sur le <strong>processus</strong>, pas le résultat. Compte les MTT, pas les euros. La session n'est pas finie tant qu'elle n'est pas finie.</div>
   </div>
-
   <div class="routine-header">
     <div class="section-label">Checklist matin</div>
     <div class="routine-progress-text" id="routine-progress">0 / 7</div>
@@ -291,76 +154,52 @@
   <div class="progress-bar-wrap">
     <div class="progress-bar-fill" id="routine-bar" style="width:0%"></div>
   </div>
-
   <div class="checklist">
-
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-circle"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="check-text">Réveil</div>
     </div>
-
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-circle"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="check-text">Hydratation + mobilité</div>
     </div>
-
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-circle"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="check-text">Douche froide</div>
     </div>
-
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-circle"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="check-text">Petit déjeuner sain</div>
     </div>
-
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-circle"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="check-text">40 MTT joués</div>
     </div>
-
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-circle"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="check-text">30 min de marche</div>
     </div>
-
     <div class="check-item" onclick="toggleCheck(this)">
       <div class="check-circle"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="check-text">10 min de méditation</div>
     </div>
-
   </div>
-
   <button class="btn-ghost" onclick="resetRoutine()">Reset pour demain</button>
 </div>
 
-<!-- OBJECTIF -->
+<!-- ─── OBJECTIF ─── -->
 <div id="tab-objectif" class="panel">
-
-  <!-- Sheets status -->
   <div class="sheets-status" id="sheets-status">
     <div class="sheets-dot dot-amber" id="sheets-dot"></div>
-    <span id="sheets-status-text">Non connecté à Google Sheets</span>
+    <span id="sheets-status-text">Chargement...</span>
   </div>
 
-  <!-- Setup si pas encore configuré -->
-  <div id="setup-section">
-    <div class="setup-box">
-      <div class="setup-title">Connecter Google Sheets</div>
-      <input type="text" class="setup-input" id="script-url-input" placeholder="Colle ici l'URL du script (voir guide ci-dessous)">
-      <button class="btn-setup" onclick="saveScriptUrl()">Connecter</button>
-      <div class="setup-hint">Suis le guide dans le fichier <strong style="color:var(--amber)">GUIDE_SHEETS.txt</strong> fourni avec ce dashboard pour obtenir l'URL en 5 minutes.</div>
-    </div>
-  </div>
-
-  <!-- Objectif principal -->
   <div class="mission-card">
-    <div class="mission-title">Objectif — Fin Avril 2025</div>
-    <div style="font-size:32px; font-weight:700; font-family:var(--mono); color:var(--green); letter-spacing:-0.02em; margin-bottom:4px;">10 000 €</div>
-    <div style="font-size:13px; color:var(--muted2);">bénéfice net depuis 500€ de BR</div>
+    <div class="mission-title">Objectif — 20 mars → 30 avril 2025</div>
+    <div style="font-size:32px;font-weight:700;font-family:var(--mono);color:var(--green);letter-spacing:-0.02em;margin-bottom:4px;">10 000 €</div>
+    <div style="font-size:13px;color:var(--muted2);">bénéfice net depuis 500€ de BR</div>
   </div>
 
-  <!-- Progress bar -->
   <div class="progress-wrap">
     <div class="progress-top">
       <span id="progress-label">0 / 10 000€</span>
@@ -371,12 +210,11 @@
     </div>
   </div>
 
-  <!-- Stats -->
   <div class="stats-grid">
     <div class="stat-card">
       <div class="stat-label">Bénéf cumulé</div>
       <div class="stat-value green" id="stat-benef">—</div>
-      <div class="stat-sub">depuis nov. 2024</div>
+      <div class="stat-sub">mars + avril</div>
     </div>
     <div class="stat-card">
       <div class="stat-label">Bénéf ce mois</div>
@@ -397,6 +235,11 @@
       <div class="stat-label">Jours restants</div>
       <div class="stat-value" id="stat-jours">—</div>
       <div class="stat-sub">avant fin avril</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Cible/jour</div>
+      <div class="stat-value amber" id="stat-cible">—</div>
+      <div class="stat-sub">bénéf requis</div>
     </div>
   </div>
 
@@ -421,12 +264,67 @@
   <div class="note">Le poker n'est pas une fin — c'est le levier qui finance ta liberté. Chaque session bien jouée est un pas vers le passif.</div>
 </div>
 
+<!-- ─── HISTORIQUE ─── -->
+<div id="tab-historique" class="panel">
+  <div class="sheets-status" id="sheets-status-histo">
+    <div class="sheets-dot dot-amber" id="sheets-dot-histo"></div>
+    <span id="sheets-status-histo-text">Chargement...</span>
+  </div>
+
+  <div class="section-label">Tous les mois</div>
+  <div class="histo-card">
+    <table class="histo-table">
+      <thead>
+        <tr>
+          <th>Mois</th>
+          <th>Heures</th>
+          <th>MTT</th>
+          <th>ROI</th>
+          <th>Bénéf</th>
+        </tr>
+      </thead>
+      <tbody id="histo-body">
+        <tr><td colspan="5" style="text-align:center;padding:20px;color:var(--muted);font-family:var(--mono);font-size:12px;">Chargement...</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>Total</td>
+          <td id="total-heures">—</td>
+          <td id="total-mtt">—</td>
+          <td id="total-roi">—</td>
+          <td id="total-benef" style="color:var(--green)">—</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <div class="section-label">Meilleur mois</div>
+  <div class="card" id="best-month-card">
+    <div class="card-row">
+      <div class="card-label">Mois</div>
+      <div class="card-value" id="best-month-name">—</div>
+    </div>
+    <div class="card-row">
+      <div class="card-label">Bénéf</div>
+      <div class="card-value green" id="best-month-benef">—</div>
+    </div>
+    <div class="card-row">
+      <div class="card-label">ROI</div>
+      <div class="card-value" id="best-month-roi">—</div>
+    </div>
+    <div class="card-row">
+      <div class="card-label">Bénéf/heure</div>
+      <div class="card-value green" id="best-month-h">—</div>
+    </div>
+  </div>
+</div>
+
 <script>
 // ─── DATE ───
-const now = new Date();
-const days = ['DIM','LUN','MAR','MER','JEU','VEN','SAM'];
-const months = ['JAN','FÉV','MAR','AVR','MAI','JUN','JUL','AOU','SEP','OCT','NOV','DÉC'];
-document.getElementById('date-label').textContent = days[now.getDay()] + ' ' + now.getDate() + ' ' + months[now.getMonth()];
+const nowD = new Date();
+const daysArr = ['DIM','LUN','MAR','MER','JEU','VEN','SAM'];
+const monthsArr = ['JAN','FÉV','MAR','AVR','MAI','JUN','JUL','AOU','SEP','OCT','NOV','DÉC'];
+document.getElementById('date-label').textContent = daysArr[nowD.getDay()] + ' ' + nowD.getDate() + ' ' + monthsArr[nowD.getMonth()];
 
 // ─── TABS ───
 function showTab(name, btn) {
@@ -434,14 +332,11 @@ function showTab(name, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-' + name).classList.add('active');
   btn.classList.add('active');
-  if (name === 'objectif') fetchSheets();
+  if (name === 'objectif' || name === 'historique') fetchSheets();
 }
 
 // ─── ROUTINE ───
-function toggleCheck(el) {
-  el.classList.toggle('done');
-  updateRoutineProgress();
-}
+function toggleCheck(el) { el.classList.toggle('done'); updateRoutineProgress(); }
 function updateRoutineProgress() {
   const items = document.querySelectorAll('.check-item');
   const done = document.querySelectorAll('.check-item.done').length;
@@ -457,16 +352,25 @@ function resetRoutine() {
 const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ-KnwW6ZfLeqVi0NjSShen28qNU1SvEc1MWhHBDSwA7t9WECDE7ulr8P_Pu-YKzA/pub?gid=1591252872&single=true&output=csv';
 
 function setStatus(state, text) {
-  const dot = document.getElementById('sheets-dot');
-  const txt = document.getElementById('sheets-status-text');
-  dot.className = 'sheets-dot ' + (state === 'ok' ? 'dot-green' : state === 'loading' ? 'dot-amber' : 'dot-red');
-  txt.textContent = text;
+  ['', '-histo'].forEach(suffix => {
+    const dot = document.getElementById('sheets-dot' + suffix);
+    const txt = document.getElementById('sheets-status' + suffix + '-text');
+    if (!dot || !txt) return;
+    dot.className = 'sheets-dot ' + (state === 'ok' ? 'dot-green' : state === 'loading' ? 'dot-amber' : 'dot-red');
+    txt.textContent = text;
+  });
 }
 
-function parseEuro(str) {
-  if (!str) return 0;
-  return parseFloat(str.replace(/[€\s]/g, '').replace(',', '.')) || 0;
+function parseNum(str) {
+  if (str === undefined || str === null || str === '') return 0;
+  return parseFloat(String(str).replace(/[€%\s]/g, '').replace(',', '.')) || 0;
 }
+
+function fmt(n) { return n.toLocaleString('fr-FR', {minimumFractionDigits:0, maximumFractionDigits:0}); }
+function fmtEuro(n) { return (n >= 0 ? '+' : '') + fmt(n) + '€'; }
+function fmtRoi(n) { return (n >= 0 ? '+' : '') + n.toFixed(1) + '%'; }
+
+let sheetsData = null;
 
 async function fetchSheets() {
   setStatus('loading', 'Synchronisation...');
@@ -475,40 +379,114 @@ async function fetchSheets() {
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const text = await res.text();
 
-    // CSV format: "8 108,89 €","0,00 €","0"
-    const row = text.trim().split('\n')[0].split(',');
-    // Reconstruct — virgule décimale peut splitter, on rejoint intelligemment
-    const raw = text.trim().replace(/\r/g, '');
-    const cells = raw.match(/"([^"]*)"/g) || raw.split(',');
-    const clean = cells.map(c => c.replace(/"/g, '').trim());
+    // Parse CSV — chaque ligne = une ligne du sheet Dashboard
+    const lines = text.trim().replace(/\r/g, '').split('\n');
 
-    const benef = parseEuro(clean[0]);
-    const benefMois = parseEuro(clean[1]);
-    const mtt = parseInt(clean[2]) || 0;
+    function parseLine(line) {
+      const cells = [];
+      let current = '';
+      let inQuotes = false;
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (c === '"') { inQuotes = !inQuotes; }
+        else if (c === ',' && !inQuotes) { cells.push(current.trim()); current = ''; }
+        else { current += c; }
+      }
+      cells.push(current.trim());
+      return cells;
+    }
 
-    document.getElementById('stat-benef').textContent = benef.toLocaleString('fr-FR') + '€';
-    document.getElementById('stat-benef-mois').textContent = benefMois.toLocaleString('fr-FR') + '€';
-    document.getElementById('stat-mtt').textContent = mtt;
+    const row1 = parseLine(lines[0] || ''); // bénéf cumulé, bénéf mois, mtt mois
+    const row2 = parseLine(lines[1] || ''); // Novembre: heures, mtt, net, roi
+    const row3 = parseLine(lines[2] || ''); // Décembre
+    const row4 = parseLine(lines[3] || ''); // Janvier
+    const row5 = parseLine(lines[4] || ''); // Février
 
-    const target = 10000;
-    const pct = Math.min(100, (benef / target) * 100);
-    document.getElementById('progress-fill').style.width = pct.toFixed(1) + '%';
-    document.getElementById('progress-label').textContent = benef.toLocaleString('fr-FR') + ' / 10 000€';
-    document.getElementById('progress-pct').textContent = pct.toFixed(1) + '%';
-    document.getElementById('stat-restant').textContent = Math.max(0, target - benef).toLocaleString('fr-FR') + '€';
+    sheetsData = {
+      benefCumule: parseNum(row1[0]),
+      benefMois:   parseNum(row1[1]),
+      mttMois:     parseNum(row1[2]),
+      mois: [
+        { nom: 'Novembre', heures: parseNum(row2[0]), mtt: parseNum(row2[1]), net: parseNum(row2[2]), roi: parseNum(row2[3]) },
+        { nom: 'Décembre', heures: parseNum(row3[0]), mtt: parseNum(row3[1]), net: parseNum(row3[2]), roi: parseNum(row3[3]) },
+        { nom: 'Janvier',  heures: parseNum(row4[0]), mtt: parseNum(row4[1]), net: parseNum(row4[2]), roi: parseNum(row4[3]) },
+        { nom: 'Février',  heures: parseNum(row5[0]), mtt: parseNum(row5[1]), net: parseNum(row5[2]), roi: parseNum(row5[3]) },
+      ]
+    };
 
-    const endApril = new Date(2025, 3, 30);
-    const joursRestants = Math.max(0, Math.ceil((endApril - new Date()) / 86400000));
-    document.getElementById('stat-jours').textContent = joursRestants;
-
-    setStatus('ok', 'Sheets synchronisé · ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'}));
+    renderObjectif();
+    renderHistorique();
+    setStatus('ok', 'Synchronisé · ' + new Date().toLocaleTimeString('fr-FR', {hour:'2-digit', minute:'2-digit'}));
   } catch(e) {
     setStatus('error', 'Erreur de connexion');
   }
 }
 
-document.getElementById('setup-section').style.display = 'none';
+function renderObjectif() {
+  if (!sheetsData) return;
+  const { benefCumule, benefMois, mttMois } = sheetsData;
+  const target = 10000;
+  const pct = Math.min(100, (benefCumule / target) * 100);
+
+  document.getElementById('stat-benef').textContent = fmt(benefCumule) + '€';
+  document.getElementById('stat-benef-mois').textContent = fmtEuro(benefMois);
+  document.getElementById('stat-mtt').textContent = Math.round(mttMois);
+  document.getElementById('stat-restant').textContent = fmt(Math.max(0, target - benefCumule)) + '€';
+  document.getElementById('progress-fill').style.width = pct.toFixed(1) + '%';
+  document.getElementById('progress-label').textContent = fmt(benefCumule) + ' / 10 000€';
+  document.getElementById('progress-pct').textContent = pct.toFixed(1) + '%';
+
+  const endApril = new Date(2025, 3, 30);
+  const jours = Math.max(0, Math.ceil((endApril - new Date()) / 86400000));
+  document.getElementById('stat-jours').textContent = jours;
+  const cible = jours > 0 ? Math.ceil(Math.max(0, target - benefCumule) / jours) : 0;
+  document.getElementById('stat-cible').textContent = cible > 0 ? fmt(cible) + '€' : '—';
+}
+
+function renderHistorique() {
+  if (!sheetsData) return;
+  const mois = sheetsData.mois;
+  const tbody = document.getElementById('histo-body');
+
+  let totalH = 0, totalMtt = 0, totalNet = 0, totalInvesti = 0;
+  let rows = '';
+
+  mois.forEach(m => {
+    totalH += m.heures;
+    totalMtt += m.mtt;
+    totalNet += m.net;
+    const cls = m.net >= 0 ? 'pos' : 'neg';
+    rows += `<tr>
+      <td>${m.nom}</td>
+      <td>${m.heures.toFixed(1)}h</td>
+      <td>${Math.round(m.mtt)}</td>
+      <td class="${m.roi >= 0 ? 'pos' : 'neg'}">${fmtRoi(m.roi)}</td>
+      <td class="${cls}">${fmtEuro(m.net)}</td>
+    </tr>`;
+  });
+
+  tbody.innerHTML = rows;
+
+  const roiMoyen = mois.length > 0 ? mois.reduce((s,m) => s + m.roi, 0) / mois.length : 0;
+  document.getElementById('total-heures').textContent = totalH.toFixed(0) + 'h';
+  document.getElementById('total-mtt').textContent = Math.round(totalMtt);
+  document.getElementById('total-roi').textContent = fmtRoi(roiMoyen);
+  document.getElementById('total-benef').textContent = fmtEuro(totalNet);
+
+  // Meilleur mois
+  const best = mois.reduce((a, b) => b.net > a.net ? b : a, mois[0]);
+  if (best) {
+    document.getElementById('best-month-name').textContent = best.nom;
+    document.getElementById('best-month-benef').textContent = fmtEuro(best.net);
+    document.getElementById('best-month-roi').textContent = fmtRoi(best.roi);
+    const bph = best.heures > 0 ? (best.net / best.heures).toFixed(1) : '—';
+    document.getElementById('best-month-h').textContent = bph + '€/h';
+  }
+}
+
+// Init
 updateRoutineProgress();
+fetchSheets();
 </script>
 </body>
 </html>
